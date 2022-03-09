@@ -1,0 +1,93 @@
+/*----------------
+Machine Background
+----------------*/
+.machine_background {
+  width: 400px;
+  height: 400px;
+
+  background-color: #ccc;
+
+  /*----------------
+  Machine Top Panel
+  ----------------*/
+  .machine_top_panel_outer {
+    width: 300px;
+    background-color: #537c49;
+    height: 80px;
+
+    margin: auto;
+    border-bottom-left-radius: 35%;
+    border-bottom-right-radius: 35%;
+
+    .machine_top_panel_inner {
+      position: relative;
+      background-color: #a0c774;
+      height: 60px;
+      width: 200px;
+      margin: auto;
+
+      /*--------------
+      Machine Buttons
+      --------------*/
+      .machine_buttons_group {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 100%;
+
+        .machine_button_outer {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #000;
+          height: 25px;
+          width: 25px;
+          border-radius: 50%;
+
+          .machine_button_inner {
+            height: 15px;
+            width: 15px;
+            background-color: #ccc;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+
+  /*---------------------    
+  Machine Pouring Section
+  ---------------------*/
+  .machine_pouring_top {
+    height: 20px;
+    width: 100px;
+    border-bottom-left-radius: 40%;
+    border-bottom-right-radius: 40%;
+    background-color: #000;
+  }
+
+    .machine_pouring_center {
+      height: 10px;
+      width: 45px;
+      background-color: #333030;
+
+      margin: auto;
+    }
+
+    /*---------------------    
+    Machine Pouring Nozzles
+    ---------------------*/
+    .machine_nozzles {
+      display: flex;
+      justify-content: center;
+
+      .machine_nozzle {
+        height: 15px;
+        width: 10px;
+        background-color: #5f5858;
+        margin: 0 .1rem;
+      }
+    }
+}
+
+
