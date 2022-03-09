@@ -11,3 +11,18 @@
 html, body {
   height: 100%;
 }
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #222;
+
+  height: 100%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
