@@ -35,5 +35,15 @@ function pourLiquid() {
 
 pourLiquid();
 
+/*-----------
+Reset Machine
+-----------*/
+machineButtons[2].addEventListener("click", () => {
+  for (let i = 0; i < 2; i++) {
+    allNozzles[i].classList.remove("milk_nozzle", "coffee_nozzle");
+    machineButtons[i].classList.remove("machine_button_pressed");
+    machineButtons[i].style.cursor = "pointer";  
+  }
+})
 
 
