@@ -1,80 +1,69 @@
 /*----------------
 Machine Background
 ----------------*/
-$machine-background: #ccc;
-
 $shade-darkest: #1f1d1d;
 $shade-dark: #1c1d1be7;
 $shade-medium: #494b46;
 $shade-light: #5f5858;
+$shade-lightest: #ccc;
+$cup-color: #247e37;
+
+@mixin sizeAndColor($height, $width, $bgColor) {
+  height: $height;
+  width: $width;
+
+  background-color: $bgColor;
+}
 
 
 .machine_background::before {
   content: '';
+  @include sizeAndColor(400px, 270px, $shade-dark);
   position: absolute;
 
   top: 0;
   left: 50%;
   transform: translate(-50%);
-
-  height: 400px;
-  width: 270px;
-
-  background-color: #1c1d1be7;
 
   z-index: 0;
 }
 
 .machine_background::after {
   content: '';
+  @include sizeAndColor(400px, 215px, $shade-medium);
   position: absolute;
 
   top: 0;
   left: 50%;
   transform: translate(-50%);
 
-  height: 400px;
-  width: 215px;
-
-  background-color: #424640;
-
   z-index: 0;
 }
 
 .machine_background {
-  position: relative;
-  width: 400px;
-  height: 400px;
+  @include sizeAndColor(400px, 400px , $shade-lightest);
 
-  background-color: $machine-background;
+  position: relative;
 
   /*----------------
   Machine Top Panel
   ----------------*/
   .machine_top_panel_outer {
+    @include sizeAndColor(80px, 300px, $shade-darkest);
     position: relative;
     margin: auto;
-
-    width: 300px;
-    height: 80px;
 
     border-bottom-left-radius: 35%;
     border-bottom-right-radius: 35%;
 
-    background-color: #1f1d1d;
-
     z-index: 1;
 
     .machine_top_panel_inner {
+      @include sizeAndColor(60px, 200px, $shade-medium);
       margin: auto;
-
-      height: 60px;
-      width: 200px;
 
       border-bottom-left-radius: 15%;
       border-bottom-right-radius: 15%;
-
-      background-color: #494b46;
 
       /*--------------
       Machine Buttons
@@ -86,26 +75,16 @@ $shade-light: #5f5858;
 
         height: 100%;
 
-        .machine_button_outer {
+        .machine_button {
+          @include sizeAndColor(25px, 25px, $shade-lightest);
+
           display: flex;
           align-items: center;
           justify-content: center;
-
           cursor: pointer;
-          
-          height: 25px;
-          width: 25px;
+      
           border-radius: 50%;
-
-          background-color: #000;
-
-          .machine_button_inner {
-            height: 15px;
-            width: 15px;
-            border-radius: 50%;
-
-            background-color: #ccc;
-          }
+          border: 4px #000 solid;
         }
       }
     }
@@ -115,25 +94,19 @@ $shade-light: #5f5858;
   Machine Pouring Section
   ---------------------*/
   .machine_pouring_top {
+    @include sizeAndColor(20px, 100px, #000);
     position: relative;
-    height: 20px;
-    width: 100px;
 
     border-bottom-left-radius: 40%;
     border-bottom-right-radius: 40%;
-
-    background-color: #000;
 
     z-index: 1;  
   }
 
     .machine_pouring_center {
+      @include sizeAndColor(10px, 45px, $shade-dark);
       position: relative;
       margin: auto;
-
-      height: 10px;
-      width: 45px;
-      background-color: #333030;
       
       z-index: 1;
     }
@@ -150,12 +123,9 @@ $shade-light: #5f5858;
       z-index: 1;
 
       .machine_nozzle {
-        height: 15px;
-        width: 10px;
+        @include sizeAndColor(15px, 10px, $shade-light);
         
         margin: 0 .1rem;
-
-        background-color: #5f5858;
       }
     }
 
@@ -163,19 +133,17 @@ $shade-light: #5f5858;
     Machine Cup
     **********/
     .machine_cup {
+      @include sizeAndColor(45px, 50px, $cup-color);
       position: absolute;
+
       bottom: 0;
       left: 50%;
       transform: translate(-50%);
 
-      height: 46px;
-      width: 50px;
-
       border-bottom-left-radius: 40%;
       border-bottom-right-radius: 40%;
 
-      background-color: #247e37;
-
+      box-shadow: inset 10px 0 10px -6px rgba(0, 0, 0, 0.4);
       z-index: 1;
     }
 
@@ -184,35 +152,27 @@ $shade-light: #5f5858;
     ----------------*/
     .machine_cup::after {
       content: '';
+      @include sizeAndColor(5px, 60px, #000);
       position: absolute;
+
       bottom: 0;
       left: 50%;
       transform: translate(-50%);
-
-      width: 60px;
-      height: 5px;
-
-      background-color: #000;
     }
 
     /*----------------    
     Machine Cup Handle
     ----------------*/
     .machine_cup_handle {
+      @include sizeAndColor(25px, 25px, $cup-color);
       position: absolute;
+      
       right: -9px;
       top: 20%;
       transform: translate(0 ,-20%);
 
-      height: 25px;
-      width: 25px;
-      
       border-top-right-radius: 50%;
       border-bottom-right-radius: 50%;
-
-      background-color: #247e37;
-
-      z-index: 3;
     }
 }
 
