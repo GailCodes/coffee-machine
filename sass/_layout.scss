@@ -1,6 +1,6 @@
-/*----------------
-Machine Background
-----------------*/
+/*-------
+Variables
+-------*/
 $shade-darkest: #1f1d1d;
 $shade-dark: #1c1d1be7;
 $shade-medium: #494b46;
@@ -8,6 +8,9 @@ $shade-light: #5f5858;
 $shade-lightest: #ccc;
 $cup-color: #247e37;
 
+/*-------
+Mixins
+-------*/
 @mixin sizeAndColor($height, $width, $bgColor) {
   height: $height;
   width: $width;
@@ -15,15 +18,25 @@ $cup-color: #247e37;
   background-color: $bgColor;
 }
 
+@mixin centerFromLeft() {
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
 
+@mixin bottomLeftRightRadius($left, $right) {
+  border-bottom-left-radius: $left;
+  border-bottom-right-radius: $right;
+}
+
+/**************
+Back of machine
+**************/
 .machine_background::before {
   content: '';
   @include sizeAndColor(400px, 270px, $shade-dark);
+  @include centerFromLeft();
   position: absolute;
-
-  top: 0;
-  left: 50%;
-  transform: translate(-50%);
 
   z-index: 0;
 }
@@ -31,35 +44,33 @@ $cup-color: #247e37;
 .machine_background::after {
   content: '';
   @include sizeAndColor(400px, 215px, $shade-medium);
+  @include centerFromLeft();
   position: absolute;
-
-  top: 0;
-  left: 50%;
-  transform: translate(-50%);
 
   z-index: 0;
 }
 
+/*****************
+Machine background
+*****************/
 .machine_background {
   @include sizeAndColor(400px, 400px , $shade-lightest);
-
   position: relative;
 
-  /*----------------
+  /****************
   Machine Top Panel
-  ----------------*/
+  ****************/
   .machine_top_panel_outer {
     @include sizeAndColor(80px, 300px, $shade-darkest);
+    @include bottomLeftRightRadius(35%, 35%);
     position: relative;
     margin: auto;
-
-    border-bottom-left-radius: 35%;
-    border-bottom-right-radius: 35%;
 
     z-index: 1;
 
     .machine_top_panel_inner {
       @include sizeAndColor(60px, 200px, $shade-medium);
+      @include bottomLeftRightRadius(15%, 15%);
       margin: auto;
 
       border-bottom-left-radius: 15%;
@@ -95,10 +106,8 @@ $cup-color: #247e37;
   ---------------------*/
   .machine_pouring_top {
     @include sizeAndColor(20px, 100px, #000);
+    @include bottomLeftRightRadius(40%, 40%);
     position: relative;
-
-    border-bottom-left-radius: 40%;
-    border-bottom-right-radius: 40%;
 
     z-index: 1;  
   }
@@ -116,7 +125,6 @@ $cup-color: #247e37;
     ---------------------*/
     .machine_nozzles {
       position: relative;
-
       display: flex;
       justify-content: center;
       
@@ -134,16 +142,11 @@ $cup-color: #247e37;
     **********/
     .machine_cup {
       @include sizeAndColor(45px, 50px, $cup-color);
+      @include centerFromLeft();
+      @include bottomLeftRightRadius(40%, 40%);
       position: absolute;
 
-      bottom: 0;
-      left: 50%;
-      transform: translate(-50%);
-
-      border-bottom-left-radius: 40%;
-      border-bottom-right-radius: 40%;
-
-      box-shadow: inset 10px 0 10px -6px rgba(0, 0, 0, 0.4);
+      box-shadow: inset 8px 0 10px -6px rgba(0, 0, 0, 0.4);
       z-index: 1;
     }
 
@@ -153,11 +156,8 @@ $cup-color: #247e37;
     .machine_cup::after {
       content: '';
       @include sizeAndColor(5px, 60px, #000);
+      @include centerFromLeft();
       position: absolute;
-
-      bottom: 0;
-      left: 50%;
-      transform: translate(-50%);
     }
 
     /*----------------    
@@ -166,14 +166,11 @@ $cup-color: #247e37;
     .machine_cup_handle {
       @include sizeAndColor(25px, 25px, $cup-color);
       position: absolute;
-      
+
       right: -9px;
       top: 20%;
       transform: translate(0 ,-20%);
 
-      border-top-right-radius: 50%;
-      border-bottom-right-radius: 50%;
+      border-radius: 50%;
     }
 }
-
-
