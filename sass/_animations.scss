@@ -1,0 +1,41 @@
+/*----------------------
+Liquid pouring animation
+----------------------*/
+@keyframes liquidPouring {
+  0% {
+    opacity: 0;
+    height: 0px;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  70% {
+    height: 240px;
+    opacity: 1;
+  }
+
+  100% {
+    height: 240px;
+    opacity: 0;
+  }
+}
+
+/*--------------
+Steam from drink
+--------------*/
+@keyframes steamFromDrink {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 0;
+    top: -35px;
+  }
+}
