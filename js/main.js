@@ -46,6 +46,7 @@ machineButtons[2].addEventListener("click", () => {
     allNozzles[i].classList.remove("milk_nozzle", "coffee_nozzle");
     machineButtons[i].classList.remove("machine_button_pressed");
     machineButtons[i].style.cursor = "pointer";  
+    machineButtons[i].style.pointerEvents = "auto";  
   }
 })
 
