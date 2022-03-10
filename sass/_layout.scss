@@ -97,6 +97,10 @@ Machine background
           border-radius: 50%;
           border: 4px #000 solid;
         }
+
+        .machine_button_pressed {
+          background-color: red;
+        }
       }
     }
   }
@@ -139,7 +143,7 @@ Machine background
       .coffee_nozzle::after {
         content: '';
         position: absolute;
-        animation: liquidPouring 1.2s infinite;
+        animation: liquidPouring 1.2s linear;
         width: 10px;
         background-color: #b4693e;
         top: 100%;
@@ -148,7 +152,7 @@ Machine background
       .milk_nozzle::after {
         content: '';
         position: absolute;
-        animation: liquidPouring 1.2s infinite;
+        animation: liquidPouring 1.2s linear;
         width: 10px;
         background-color: #ffffff;
         top: 100%;
