@@ -135,6 +135,45 @@ Machine background
         
         margin: 0 .1rem;
       }
+
+      .coffee_nozzle::after {
+        content: '';
+        position: absolute;
+        animation: liquidPouring 1.2s infinite;
+        width: 10px;
+        background-color: #b4693e;
+        top: 100%;
+      }
+
+      .milk_nozzle::after {
+        content: '';
+        position: absolute;
+        animation: liquidPouring 1.2s infinite;
+        width: 10px;
+        background-color: #ffffff;
+        top: 100%;
+      }
+    }
+
+    @keyframes liquidPouring{
+      0% {
+        opacity: 0;
+        height: 0px;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      70% {
+        height: 240px;
+        opacity: 1;
+      }
+
+      100% {
+        height: 240px;
+        opacity: 0;
+      }
     }
 
     /**********   
