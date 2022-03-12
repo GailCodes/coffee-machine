@@ -3,6 +3,7 @@ Variables
 --------*/
 const machineButtons = document.querySelectorAll(".machine_button");
 const allNozzles = document.querySelectorAll(".machine_nozzle");
+const cupSteamEl = document.querySelector(".machine_cup_steam");
 
 /*---------------
 Pouring animation
@@ -28,7 +29,7 @@ function pourLiquid() {
       // If both milk and coffee are poured then coffee is made
       while (allNozzles[0].classList.contains("coffee_nozzle") && allNozzles[1].classList.contains("milk_nozzle")) {
         setTimeout(() => {
-          console.log("Coffee is done");
+          cupSteamEl.classList.add("machine_cup_steam--active");
         }, 1000);
         break;
       }
@@ -48,6 +49,7 @@ machineButtons[2].addEventListener("click", () => {
     machineButtons[i].style.cursor = "pointer";  
     machineButtons[i].style.pointerEvents = "auto";  
   }
+  cupSteamEl.classList.remove("machine_cup_steam--active");
 })
 
 

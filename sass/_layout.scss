@@ -196,17 +196,19 @@ Machine background
       ----------------*/
       .machine_cup_steam {
         position: absolute;
-        top: -25px;
+        
         left: 20px;
 
         height: 25px;
         width: 25px;
-
-        animation: steamFromDrink 1.5s infinite;
         
         border-radius: 45%;
         opacity: 0;
         background-color: $shade-lightest;
+      }
+
+      .machine_cup_steam--active {
+        top: -25px;animation: steamFromDrink 1.8s infinite;
       }
     }
 
