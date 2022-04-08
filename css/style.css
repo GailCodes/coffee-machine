@@ -1,0 +1,260 @@
+/*---------
+  GLOBAL
+---------*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: #222;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+/*----------------------
+Liquid pouring animation
+----------------------*/
+@keyframes liquidPouring {
+  0% {
+    opacity: 0;
+    height: 0px;
+  }
+  50% {
+    opacity: 1;
+  }
+  70% {
+    height: 240px;
+    opacity: 1;
+  }
+  100% {
+    height: 240px;
+    opacity: 0;
+  }
+}
+/*--------------
+Steam from drink
+--------------*/
+@keyframes steamFromDrink {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+    top: -35px;
+  }
+}
+/*-------
+Variables
+-------*/
+/*-------
+Mixins
+-------*/
+/**************
+Back of machine
+**************/
+.machine_background::before {
+  content: "";
+  height: 400px;
+  width: 270px;
+  background-color: #1c1d1be7;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+  position: absolute;
+  z-index: 0;
+}
+
+.machine_background::after {
+  content: "";
+  height: 400px;
+  width: 215px;
+  background-color: #494b46;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+  position: absolute;
+  z-index: 0;
+}
+
+/*****************
+Machine background
+*****************/
+.machine_background {
+  height: 400px;
+  width: 400px;
+  background-color: #ccc;
+  position: relative;
+  /****************
+  Machine Top Panel
+  ****************/
+  /*---------------------    
+  Machine Pouring Section
+  ---------------------*/
+  /*---------------------    
+  Machine Pouring Nozzles
+  ---------------------*/
+  /**********   
+  Machine Cup
+  **********/
+  /*----------------    
+  Machine Cup Stand
+  ----------------*/
+}
+.machine_background .machine_top_panel_outer {
+  height: 80px;
+  width: 300px;
+  background-color: #1f1d1d;
+  border-bottom-left-radius: 35%;
+  border-bottom-right-radius: 35%;
+  position: relative;
+  margin: auto;
+  z-index: 1;
+}
+.machine_background .machine_top_panel_outer .machine_top_panel_inner {
+  height: 60px;
+  width: 200px;
+  background-color: #494b46;
+  border-bottom-left-radius: 15%;
+  border-bottom-right-radius: 15%;
+  margin: auto;
+  border-bottom-left-radius: 15%;
+  border-bottom-right-radius: 15%;
+  /*--------------
+  Machine Buttons
+  --------------*/
+}
+.machine_background .machine_top_panel_outer .machine_top_panel_inner .machine_buttons_group {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+}
+.machine_background .machine_top_panel_outer .machine_top_panel_inner .machine_buttons_group .machine_button {
+  height: 25px;
+  width: 25px;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 4px #000 solid;
+}
+.machine_background .machine_top_panel_outer .machine_top_panel_inner .machine_buttons_group .machine_button_pressed {
+  background-color: red;
+}
+.machine_background .machine_pouring_top {
+  height: 20px;
+  width: 100px;
+  background-color: #000;
+  border-bottom-left-radius: 40%;
+  border-bottom-right-radius: 40%;
+  position: relative;
+  z-index: 1;
+}
+.machine_background .machine_pouring_center {
+  height: 10px;
+  width: 45px;
+  background-color: #1c1d1be7;
+  position: relative;
+  margin: auto;
+  z-index: 1;
+}
+.machine_background .machine_nozzles {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+.machine_background .machine_nozzles .machine_nozzle {
+  height: 15px;
+  width: 10px;
+  background-color: #5f5858;
+  margin: 0 0.1rem;
+}
+.machine_background .machine_nozzles .coffee_nozzle::after {
+  content: "";
+  position: absolute;
+  animation: liquidPouring 900ms linear;
+  width: 10px;
+  background-color: #b4693e;
+  top: 100%;
+}
+.machine_background .machine_nozzles .milk_nozzle::after {
+  content: "";
+  position: absolute;
+  animation: liquidPouring 900ms linear;
+  width: 10px;
+  background-color: #fff;
+  top: 100%;
+}
+.machine_background .machine_cup {
+  height: 45px;
+  width: 50px;
+  background-color: #3046c4;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+  border-bottom-left-radius: 40%;
+  border-bottom-right-radius: 40%;
+  position: absolute;
+  box-shadow: inset 8px 0 10px -6px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  /*----------------    
+  Machine Cup Handle
+  ----------------*/
+  /*----------------    
+  Machine Cup Steam
+  ----------------*/
+}
+.machine_background .machine_cup .machine_cup_handle {
+  height: 25px;
+  width: 25px;
+  background-color: #3046c4;
+  position: absolute;
+  right: -9px;
+  top: 20%;
+  transform: translate(0, -20%);
+  border-radius: 50%;
+}
+.machine_background .machine_cup .machine_cup_steam {
+  position: absolute;
+  left: 20px;
+  height: 25px;
+  width: 25px;
+  border-radius: 45%;
+  opacity: 0;
+  background-color: #ccc;
+}
+.machine_background .machine_cup .machine_cup_steam--active {
+  top: -25px;
+  animation: steamFromDrink 1.8s infinite;
+}
+.machine_background .machine_cup::after {
+  content: "";
+  height: 5px;
+  width: 60px;
+  background-color: #000;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+  position: absolute;
+}
+
+/*# sourceMappingURL=style.css.map */
