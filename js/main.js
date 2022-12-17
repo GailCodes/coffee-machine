@@ -1,13 +1,7 @@
-/*--------
-Variables
---------*/
 const machineButtons = document.querySelectorAll(".machine_button");
 const allNozzles = document.querySelectorAll(".machine_nozzle");
 const cupSteamEl = document.querySelector(".machine_cup_steam");
 
-/*---------------
-Pouring animation
----------------*/
 function pourLiquid() {
   for (let i = 0; i < 2; i++) {
     machineButtons[i].addEventListener("click", () => {
